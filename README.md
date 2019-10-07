@@ -1,6 +1,8 @@
 # web_scrape_101
 
-NY Time article documenting all of Trump's lies he has told publicily since taking the oath of office.
+This repo is to document the Web scraping in Python tutorial by Data School on YouTube in which we will extract data from a NY Times article documenting all of Trump's lies he has told publicily since taking the oath of office.
+
+https://www.youtube.com/watch?v=Zh2fkZ-uzBU
 https://www.nytimes.com/interactive/2017/06/23/opinion/trumps-lies.html
 
 The code snippets are written in a way to show you exactly what the commands are doing. The first half of this walkthrough shows you how to extract the data from one result rather than the full set. In doing this we are figuring out how to do it for one result and can then translate it into a loop for the whole data set. 
@@ -74,7 +76,7 @@ So here we can see that we have scraped 116 lies and stored them in a beautifuls
 >>> (out) https://www.buzzfeed.com...
 ```
 
-### Building the dataset
+### Building the dataset...
 
 ```python
 >>> records = []
@@ -86,6 +88,29 @@ So here we can see that we have scraped 116 lies and stored them in a beautifuls
 >>> records.append((date, lie, explanation, url))
 >>> len(records)
 >>> (out) 116
+```
+
+### Applying a tabular data structure...
+
+
+```python
+>>> import pandas as pd
+>>> df = pd.DataFrame(records, columns=['date', 'lie', 'explanation', 'url'])
+>>> df.head()
+>>> df.tail()
+>>> df['date'] = pd.to_datetime(df['date'])
+>>> df.head()
+>>> df.tail()
+```
+
+### Exporting the dataset to a CSV file...
+
+First command exports the file to csv, the second command reads the file back into `pandas`.
+
+
+```python
+>>> df.to_csv('trump_lies.csv', index=False, encoding='utf=8')
+>>> df = pd.read_csv('trump_lies.csv', parse_dates=['date'], encoding='utf-8')
 ```
 
 
