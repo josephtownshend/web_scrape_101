@@ -3,6 +3,9 @@
 NY Time article documenting all of Trump's lies he has told publicily since taking the oath of office.
 https://www.nytimes.com/interactive/2017/06/23/opinion/trumps-lies.html
 
+The code snippets are written in a way to show you exactly what the commands are doing. The first half of this walkthrough shows you how to extract the data from one result rather than the full set. In doing this we are figuring out how to do it for one result and can then translate it into a loop for the whole data set. 
+
+
 In order to read the HTML from the article into Python we need to use `requests`.
 `$ pip install requests`
 
@@ -68,6 +71,19 @@ Extract the URL...
 >>> first_result.find('a')['href']
 >>> (out) https://www.buzzfeed.com...
 ```
+
+Building the dataset
+
+```python
+>>> records = []
+>>> for result in results
+>>> date = result.find('strong').text[0:-1] + ', 2017'
+>>> lie = result.contents[1][1:-2]
+>>> explanation = result.find('a').text[1:-1]
+>>> url = result.find('a')['href']
+>>> records.append((date, lie, explanation, url))
+>>> len(records)
+>>> (out) 116
 
 
 
