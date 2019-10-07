@@ -52,3 +52,14 @@ We now need to extract the lie...
 >>> (out) "I wasn't a fan of Iraq. I didn't want to go into Iraq."
 ```
 
+Extract the explanation...
+
+```python
+
+>>> first_result.contents[2]
+>>> first_result.find('a')
+>>> first_result.find('a').text[1:-1]
+>>> (out) "He was for an invasion before he was against it."
+```
+
+
