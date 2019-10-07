@@ -42,7 +42,7 @@ We can now try to extract the date, let's start with the first object...
 >>> (out) 'Jan. 21, 2017'
 ```
 
-We now need to extract the lie...
+Extract the lie...
 
 ```python
 >>> first_result
@@ -55,11 +55,20 @@ We now need to extract the lie...
 Extract the explanation...
 
 ```python
-
 >>> first_result.contents[2]
 >>> first_result.find('a')
 >>> first_result.find('a').text[1:-1]
 >>> (out) "He was for an invasion before he was against it."
 ```
+
+Extract the URL...
+
+```python
+>>> first_result.find('a')
+>>> first_result.find('a')['href']
+>>> (out) https://www.buzzfeed.com...
+```
+
+
 
 
