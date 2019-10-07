@@ -28,7 +28,7 @@ Next we are going to parse the HTML using the `beatuifulsoup` library.
 ```python
 >>> from bs4 import BeautifulSoup
 >>> soup = BeautifulSoup(r.text, 'html.parser')
->>> results = find_all('span', attrs={'class':'short-desc'}
+>>> results = soup.find_all('span', attrs={'class':'short-desc'}
 >>> len(results)
 >>> (out) 116
 ```
@@ -120,7 +120,7 @@ r = requests.get('https://www.nytimes.com/interactive/2017/06/23/opinion/trumps-
 
 from bs4 import BeautifulSoup
 soup = BeautifulSoup(r.text, 'html.parser')
-results = find_all('span', attrs={'class':'short-desc'}
+results = soup.find_all('span', attrs={'class':'short-desc'}
 
 records = []
 for result in results
