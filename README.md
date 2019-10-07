@@ -21,6 +21,8 @@ Next we are going to parse the HTML using the `beatuifulsoup` library.
 
 `$ pip install beautifulsoup4`
 
+### Getting started...
+
 ```python
 >>> from bs4 import BeautifulSoup
 >>> soup = BeautifulSoup(r.text, 'parser.html')
@@ -31,7 +33,7 @@ Next we are going to parse the HTML using the `beatuifulsoup` library.
 
 So here we can see that we have scraped 116 lies and stored them in a beautifulsoup object called `results`, however they are still in the form of raw HTML.
 
-We can now try to extract the date, let's start with the first object...
+### Extract the date...
 
 ```python
 >>> first_result = results[0]
@@ -45,7 +47,7 @@ We can now try to extract the date, let's start with the first object...
 >>> (out) 'Jan. 21, 2017'
 ```
 
-Extract the lie...
+### Extract the lie...
 
 ```python
 >>> first_result
@@ -55,7 +57,7 @@ Extract the lie...
 >>> (out) "I wasn't a fan of Iraq. I didn't want to go into Iraq."
 ```
 
-Extract the explanation...
+### Extract the explanation...
 
 ```python
 >>> first_result.contents[2]
@@ -64,7 +66,7 @@ Extract the explanation...
 >>> (out) "He was for an invasion before he was against it."
 ```
 
-Extract the URL...
+### Extract the URL...
 
 ```python
 >>> first_result.find('a')
@@ -72,7 +74,7 @@ Extract the URL...
 >>> (out) https://www.buzzfeed.com...
 ```
 
-Building the dataset
+### Building the dataset
 
 ```python
 >>> records = []
@@ -84,7 +86,6 @@ Building the dataset
 >>> records.append((date, lie, explanation, url))
 >>> len(records)
 >>> (out) 116
-
-
+```
 
 
