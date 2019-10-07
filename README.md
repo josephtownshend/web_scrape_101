@@ -41,3 +41,14 @@ We can now try to extract the date, let's start with the first object...
 >>> first_result.find('strong').text[0:-1] + ', 2017'
 >>> (out) 'Jan. 21, 2017'
 ```
+
+We now need to extract the lie...
+
+```python
+>>> first_result
+>>> first_result.contents
+>>> first_result.contents[1]
+>>> first_result.contents[1][1:-2]
+>>> (out) "I wasn't a fan of Iraq. I didn't want to go into Iraq."
+```
+
